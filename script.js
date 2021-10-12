@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
 // Action to be performed when user clicks on "Send" button within Main Page of Discord
+/*
 document.getElementById("send-btn").onclick = function(){
 
     messageID = messageID + 1;
@@ -106,3 +107,4 @@ document.getElementById("send-btn").onclick = function(){
     chats.appendChild(editMessage);
     chats.appendChild(lineBreak);
 }
+*/
