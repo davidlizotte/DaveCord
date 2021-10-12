@@ -19,7 +19,11 @@ import * as fbauth from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-
+/* Connects Javascript code to Firebase database */
+let db = rtdb.getDatabase(app);
+let auth = fbauth.getAuth(app);
+let titleRef = rtdb.ref(db, "/");
+let chatRef = rtdb.child(titleRef, "chats");
 
 let username;
 let messageID = 0; // message id to keep track of incoming messages in the database
