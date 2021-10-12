@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     e.preventDefault();
     loginform.classList.remove("form-hidden");
     createaccountform.classList.add("form-hidden");
+  });
                                                           
 });
 
