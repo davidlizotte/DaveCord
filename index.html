@@ -1,18 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>DaveCord</title>
-  </head>
-  <body>
-    <h1 id='title'>DaveCord </h1>
-    <div id="wrap">
-      <div id="signin" class="form-group">
-        <h3>Sign In</h3>
-        <input type="text" placeholder='Email' id="email">
-        <input type="password" placeholder="Password" id="password">
-        <button type="button" id="register">Register</button>
-        <button type="button" id="login">Login</button>
-      </div>
-    <p></p>
-  </body>
+ <head>
+  <title> DIY Discord </title>
+  <script type="module" src="src/firebase-connection.js"> </script>
+  <script type="module" src="src/index.js"> </script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+ </head>
+
+ <body>
+  <div class="container">
+   <form class="form" id="login">
+    <h1 class="form-title">Login</h1>
+    <div class="form-input-group">
+     <input type="text" class="form-input" required autofocus placeholder="Email">
+     <div class="form-input-error"></div>
+    </div>
+    <div class="form-input-group">
+     <input type="text" class="form-input" required placeholder="Password">
+     <div class="form-input-error"></div>
+    </div>
+     <button class="form-button" type="submit">Login</button>
+     <p class="form-text">
+      <a class="form-link" id="password-reset-link" href="#password-reset"> Forgot your password? </a>
+     </p>
+     <p class="form-text">
+      <a class="form-link" id="linkcreateaccount" href="./"> Need to register? </a>
+     </p>
+   </form>
+   <form class="form form-hidden" id="createaccount">
+    <h1 class="form-title">Create Account</h1>
+    <div class="form-input-group">
+     <input type="text" class="form-input" required autofocus placeholder="Email">
+     <div class="form-input-error"></div>
+    </div>
+    <div class="form-input-group">
+     <input type="text" class="form-input" required autofocus placeholder="Username">
+     <div class="form-input-error"></div>
+    </div>
+    <div class="form-input-group">
+     <input type="text" class="form-input" required placeholder="Password">
+     <div class="form-input-error"></div>
+    </div>
+     <button class="form-button" type="submit">Sign up</button>
+     <p class="form-text">
+      <a class="form-link" id="login-link" href="./"> Already have an account? Sign in </a>
+     </p>
+      </form>
+  </div>
+
+  <div style="display:none" id="password-reset">
+    <h1> Password Reset Request for Discord </h1>
+    <p> We received your request for resetting your current password. Follow the instructions from email that we sent out to you to reset your password successfully </p> <br>
+    <a id="password-reset-login-link" href="#login"> Back to Login Page </a>
+  </div> 
+
+  <div style="display: none" id="main_page">
+    <h1 align="center"> You are now in the main page of Discord </h1>
+    <p style="text-align: center"> All the key features of Discord would come here... </p> 
+   <div class="wrapper" id = "main_page">
+          <div class="sidebar">
+            <h1>Servers</h1>
+            <div class="servers">
+            <button type="button">Add Server</button>
+              <button type="button">Delete Server</button>
+            </div>
+            <ul id="serverlist">
+            </ul>
+          </div>
+    </div>
+    <div style="text-align: center" id="chats">
+    </div>  
+    <br><br><br><br><br><br><br><br><br><br>
+    <div style="text-align: center">
+      <form> 
+        <input type="text" id="message-field">
+        <input type = "button" id="send-btn" value="Send">
+      </form>
+    </div>
+  </div>
+ </body>
+</html>
 
