@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
   const loginform = document.querySelector("#login");
   const createaccountform = document.querySelector("#createaccount");
   
-  dosument.querySelector("#linkcreateaccount").addEventListener("click", e =>{
+  document.querySelector("#linkcreateaccount").addEventListener("click", e =>{
     e.preventDefault();
     loginForm.classList.add("form-hidden");
     createAccountForm.classList.remove(form-hidden);
   });
-  dosument.querySelector("#linklogin").addEventListener("click", e =>{
+  document.querySelector("#linklogin").addEventListener("click", e =>{
     e.preventDefault();
     loginForm.classList.remove("form-hidden");
     createAccountForm.classList.add("form-hidden");
