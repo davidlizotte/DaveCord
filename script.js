@@ -2,6 +2,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
 import * as rtdb from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
+import * as fbauth from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,11 +20,6 @@ import * as rtdb from "https://www.gstatic.com/firebasejs/9.0.2/firebase-databas
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
-import * as rtdb from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
-import * as fbauth from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
 
 let username;
 let messageID = 0; // message id to keep track of incoming messages in the database
