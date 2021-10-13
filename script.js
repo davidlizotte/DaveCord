@@ -44,10 +44,10 @@ let handleHash = function(){
         loginform.classList.add("form-hidden");
         let createaccountform = document.getElementById("createaccount");
         createaccountform.classList.remove("form-hidden"); 
-        let mainpageform = document.getElementById("main_page");
+        let mainpageform = document.getElementById("main-page");
         mainpageform.classList.add("form-hidden");
         let passwordresetform = document.getElementById("password-reset");
-        passwordresetform.classList.add("from-hidden")
+        passwordresetform.classList.add("from-hidden");
         
     }
     if(loginForm == true){
@@ -55,10 +55,10 @@ let handleHash = function(){
         loginform.classList.remove("form-hidden");
         let createaccountform = document.getElementById("createaccount");
         createaccountform.classList.add("form-hidden"); 
-        let mainpageform = document.getElementById("main_page");
+        let mainpageform = document.getElementById("main-page");
         mainpageform.classList.add("form-hidden");
         let passwordresetform = document.getElementById("password-reset");
-        passwordresetform.classList.add("from-hidden")
+        passwordresetform.classList.add("from-hidden");
     }
     if(passwordResetPage == true){
         let email = document.getElementById("signin-email").value;
@@ -66,10 +66,10 @@ let handleHash = function(){
         loginform.classList.add("form-hidden");
         let createaccountform = document.getElementById("createaccount");
         createaccountform.classList.add("form-hidden"); 
-        let mainpageform = document.getElementById("main_page");
+        let mainpageform = document.getElementById("main-page");
         mainpageform.classList.add("form-hidden");
         let passwordresetform = document.getElementById("password-reset");
-        passwordresetform.classList.remove("from-hidden")
+        passwordresetform.classList.remove("from-hidden");
 
         fbauth.sendPasswordResetEmail(auth, email).then(() => {
             // Password reset email sent!
@@ -132,12 +132,12 @@ document.getElementById("login-btn").onclick = function(){
     let password = document.getElementById("signin-password").value;
 
     fbauth.signInWithEmailAndPassword(auth, email, password).then(()=>{
-        location.href = "#main_page";
+        location.href = "#main-page";
         window.addEventListener("hashchange", mainPageHash);
         window.addEventListener("load", mainPageHash);
     }).catch(e=>{
         alert(e.code);
-    })
+    });
     
 };
 
@@ -150,10 +150,14 @@ document.getElementById("password-reset-link").onclick = function(){
 };
 
 let mainPageHash = function() {
-    document.getElementById("signup").style = "display: none";
-    document.getElementById("login").style = "display: none";
-    document.getElementById("password-reset").style = "display: none";
-    document.getElementById("main_page").style = "display: block";
+    let signupform = document.getElementById("signup");
+    signupform.classList.add("form-hidden");
+    let loginform = document.getElementById("login");
+    loginform.classList.add("form-hidden");
+    let passwordresetform = document.getElementById("password-reset");
+    passwordresetform.classList.add("form-hidden");
+    let mainpageform = document.getElementById("main-page");
+    mainpageform.classList.remove("form-hidden");
 }
 
 // Action to be performed when user clicks on "Send" button within Main Page of Discord
