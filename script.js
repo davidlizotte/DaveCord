@@ -148,7 +148,7 @@ document.getElementById("password-reset-link").onclick = function(){
 };
 
 let mainPageHash = function() {
-    let signupform = document.getElementById("signup");
+    let signupform = document.getElementById("createaccount");
     signupform.classList.add("form-hidden");
     let loginform = document.getElementById("login");
     loginform.classList.add("form-hidden");
