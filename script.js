@@ -101,7 +101,7 @@ document.getElementById("password-reset-login-link").onclick = function() {
     document.getElementById("signin-password").value = "";
 };
 
-document.getElementById("signup-link").onclick = function(){
+document.getElementById("linkcreateaccount").onclick = function(){
     loginForm = false;
     signUpForm = true;
     passwordResetPage = false;
