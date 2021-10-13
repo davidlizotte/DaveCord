@@ -27,8 +27,8 @@ let chatRef = rtdb.child(titleRef, "chats");
 
 let username;
 let messageID = 0; // message id to keep track of incoming messages in the database
-let signUpForm = true; // Flag to check whether or not we are in Sign Up page
-let loginForm = false; // Flag to check whether or not we are in Login page
+let signUpForm = false; // Flag to check whether or not we are in Sign Up page
+let loginForm = true; // Flag to check whether or not we are in Login page
 let passwordResetPage = false; // Flag to check whether or not we are in Password Reset page
 
 // Check from database how many messages are stored to make our "messageID" more accurate
