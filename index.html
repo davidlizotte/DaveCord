@@ -26,7 +26,7 @@
       <a class="form-link" id="password-reset-link" href="#password-reset"> Forgot your password? </a>
      </p>
      <p class="form-text">
-      <a class="form-link" id="linkcreateaccount" href="./"> Need to register? </a>
+      <a class="form-link" id="linkcreateaccount" href="#register"> Need to register? </a>
      </p>
    </form>
    <form class="form form-hidden" id="createaccount">
@@ -45,40 +45,31 @@
     </div>
      <button class="form-button" id="signup-btn" type="submit">Sign up</button>
      <p class="form-text">
-      <a class="form-link" id="login-link" href="./"> Already have an account? Sign in </a>
+      <a class="form-link" id="login-link" href="#login"> Already have an account? Sign in </a>
      </p>
       </form>
-  </div>
-
-  <div style="display:none" id="password-reset">
-    <h1> Password Reset Request for Discord </h1>
-    <p> We received your request for resetting your current password. Follow the instructions from email that we sent out to you to reset your password successfully </p> <br>
-    <a id="password-reset-login-link" href="#login"> Back to Login Page </a>
-  </div> 
-
-  <div style="display: none" id="main_page">
-    <h1 align="center"> You are now in the main page of Discord </h1>
-    <p style="text-align: center"> All the key features of Discord would come here... </p> 
-   <div class="wrapper" id = "main_page">
-          <div class="sidebar">
-            <h1>Servers</h1>
-            <div class="servers">
-            <button type="button">Add Server</button>
-              <button type="button">Delete Server</button>
-            </div>
-            <ul id="serverlist">
-            </ul>
-          </div>
+   <form class="form form-hidden" id="password-reset">
+    <h1> Password Reset Request for DaveCord </h1>
+    <p> "We recieved your request for resetting your current password. Follow the instructions from the email we sent you to reset your password"
+     <p class="form-text">
+      <a class="form-link" id="password-reset-login-link" href="#login"> Back to Login Page </a>
+     </p>
+   </form>
+   <form class="form form-hidden" id="main-page">
+    <div class="wrapper" id="wrapper-sidebar">
+     <div class="sidebar">
+      <h1>Servers</h1>
+      <div class="servers">
+       <button type="button">Add Server</button>
+       <burron type="button">Delete Server</button>
+      </div>
+     </div>
     </div>
-    <div style="text-align: center" id="chats">
-    </div>  
-    <br><br><br><br><br><br><br><br><br><br>
-    <div style="text-align: center">
-      <form> 
-        <input type="text" id="message-field">
-        <input type = "button" id="send-btn" value="Send">
-      </form>
+    <div class="chatbox" id="chats">
+     <input type="text" id="message-field">
+     <input type="button" id="send-btn" value="Send">
     </div>
+   </form>
   </div>
  </body>
 </html>
