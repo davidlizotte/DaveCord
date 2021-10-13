@@ -47,7 +47,7 @@ let handleHash = function(){
         let mainpageform = document.getElementById("main-page");
         mainpageform.classList.add("form-hidden");
         let passwordresetform = document.getElementById("password-reset");
-        passwordresetform.classList.add("from-hidden");
+        passwordresetform.classList.add("form-hidden");
         
     }
     if(loginForm == true){
@@ -58,7 +58,7 @@ let handleHash = function(){
         let mainpageform = document.getElementById("main-page");
         mainpageform.classList.add("form-hidden");
         let passwordresetform = document.getElementById("password-reset");
-        passwordresetform.classList.add("from-hidden");
+        passwordresetform.classList.add("form-hidden");
     }
     if(passwordResetPage == true){
         let email = document.getElementById("signin-email").value;
@@ -69,7 +69,7 @@ let handleHash = function(){
         let mainpageform = document.getElementById("main-page");
         mainpageform.classList.add("form-hidden");
         let passwordresetform = document.getElementById("password-reset");
-        passwordresetform.classList.remove("from-hidden");
+        passwordresetform.classList.remove("form-hidden");
 
         fbauth.sendPasswordResetEmail(auth, email).then(() => {
             // Password reset email sent!
