@@ -173,6 +173,7 @@ let mainPageHash = function() {
 }
 
 // Action to be performed when user clicks on "Send" button within Main Page of Discord
+/*
 document.getElementById("send-btn").onclick = function(){
 
     messageID = messageID + 1;
@@ -228,7 +229,9 @@ document.getElementById("send-btn").onclick = function(){
     chats.appendChild(message);
     chats.appendChild(editMessage);
     chats.appendChild(lineBreak);
+ 
 }
+*/
 /*
 // Check from database how many messages are stored to make our "messageID" more accurate
 rtdb.get(chatRef).then(ss=>{
