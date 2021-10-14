@@ -46,6 +46,8 @@ let handleHash = function(){
         mainpageform.classList.add("form-hidden");
         let passwordresetform = document.getElementById("password-reset");
         passwordresetform.classList.add("form-hidden");
+        let createserverform = document.getElementById("create-server");
+        createserverform.classList.add("form-hidden");
         
     }
     if(loginForm == true){
@@ -57,6 +59,8 @@ let handleHash = function(){
         mainpageform.classList.add("form-hidden");
         let passwordresetform = document.getElementById("password-reset");
         passwordresetform.classList.add("form-hidden");
+        let createserverform = document.getElementById("create-server");
+        createserverform.classList.add("form-hidden");
     }
     if(passwordResetPage == true){
         let email = document.getElementById("signin-email").value;
@@ -68,6 +72,8 @@ let handleHash = function(){
         mainpageform.classList.add("form-hidden");
         let passwordresetform = document.getElementById("password-reset");
         passwordresetform.classList.remove("form-hidden");
+        let createserverform = document.getElementById("create-server");
+        createserverform.classList.add("form-hidden");
 
         fbauth.sendPasswordResetEmail(auth, email).then(() => {
             // Password reset email sent!
@@ -124,6 +130,12 @@ document.getElementById("signup-btn").onclick = function(e){
     });
 };
 
+/*action when the user clicks "Add Server" button*/
+document.getElementById("addserver-btn".oneclick = function(){
+        let createserverform = document.getElementById("create-server");
+        createserverform.classList.remove("form-hidden");
+};
+
 /* Action to be performed when user clicks "Login" button */
 document.getElementById("login-btn").onclick = function(){
     let email = document.getElementById("signin-email").value;
@@ -156,6 +168,8 @@ let mainPageHash = function() {
     passwordresetform.classList.add("form-hidden");
     let mainpageform = document.getElementById("main-page");
     mainpageform.classList.remove("form-hidden");
+    let createserverform = document.getElementById("create-server");
+    createserverform.classList.add("form-hidden");
 }
 
 // Action to be performed when user clicks on "Send" button within Main Page of Discord
