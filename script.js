@@ -131,10 +131,10 @@ document.getElementById("signup-btn").onclick = function(e){
 };
 
 /*action when the user clicks "Add Server" button*/
-document.getElementById("addserver-btn".oneclick = function(){
+document.getElementById("addserver-btn".oneclick) = function(){
         let createserverform = document.getElementById("create-server");
         createserverform.classList.remove("form-hidden");
-});
+};
 
 /* Action to be performed when user clicks "Login" button */
 document.getElementById("login-btn").onclick = function(){
