@@ -60,7 +60,7 @@
      <div class="sidebar">
       <h1>Servers</h1>
       <div class="servers">
-       <button type="button">Create Server</button>
+       <button type="button" id="addserver-btn">Create Server</button>
        <button type="button">Delete Server</button>
        <ul id="server-list">
         
@@ -68,16 +68,14 @@
       </div>
      </div>
     </div>
-    <div class="make-server" id=make-server>
+   </form>
+   <form class="form form-hidden" id="create-server">
+    <div class="server-input-group">
      <input type="text" id="server-name">
      <button type="button" id="create-server">Create</button>
-    </div>
-    <div class="chatbox" id="chats">
-     <input type="text" id="message-field">
-     <input type="button" id="send-btn" value="Send">
+     <button type="button" id="close-btn">X</button>
     </div>
    </form>
   </div>
  </body>
 </html>
-
