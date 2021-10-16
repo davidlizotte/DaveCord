@@ -88,7 +88,15 @@
     <div class="wrapper" id="wrapper-sidebar">
      <div class="sidebar">
       <div style="text-align: center">
-        <input type="button" value="Leave Server" id="back-btn"> 
+        <div style="display: none" id="join-server-btn-container">
+          <input type="button" value="Join Server" id="join-server-btn">
+        </div>
+        <div style="display: none" id="leave-server-btn-container">
+          <input type="button" value="Leave Server" id="leave-server-btn">
+        </div>
+        <div style="display: none" id="delete-server-btn-container"> 
+          <input type="button" value="Delete Server" id="delete-server-btn">
+        </div>
       </div>  
       <h2>Server Name</h2>
       <div id="nameOfServer">
