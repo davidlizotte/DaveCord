@@ -302,6 +302,7 @@ document.getElementById("create-server-btn").onclick = function(){
 document.getElementById("send-btn").onclick = function(){
   let message = document.getElementById("message-field").val();
   let currenttime = Date().valueOf();
+  username = document.getElementById("user-username").value;
   let newmessage = {
     message: message,
     username: username,
