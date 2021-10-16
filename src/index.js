@@ -302,11 +302,11 @@ document.getElementById("create-server-btn").onclick = function(){
 document.getElementById("send-btn").onclick = function(){
   let messageRef = rtdb.child(chatRef, "chats");
   let message = document.getElementById("message-field").val();
-  let currenttime = Date().valueOf();
+  //let currenttime = Date().valueOf();
   username = document.getElementById("user-username").value;
   let chatObj = {
     "message": message,
-    "timestamp": currenttime
+    //"timestamp": currenttime
 }
   rtdb.update(messageRef, chatObj);
 };
