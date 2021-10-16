@@ -1,6 +1,6 @@
 
 
-import {auth, fbauth, serverRef, rtdb} from './firebase-connection.js';
+import {auth, fbauth, serverRef, memberRef, chatRef, rtdb} from './firebase-connection.js';
 
 let username;
 let user;
