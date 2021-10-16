@@ -306,7 +306,7 @@ document.getElementById("send-btn").onclick = function(){
     username: username,
     timestamp: currenttime
 }
-  rtdb.push(chatRef, newmessage);
+  rtdb.update(chatRef, newmessage);
 };
 
 
