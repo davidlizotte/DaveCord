@@ -298,6 +298,7 @@ document.getElementById("create-server-btn").onclick = function(){
 
     rtdb.update(nameRef, serverObj);
 }
+
 document.getElementById("send-btn").onclick = function(){
   let message = document.getElementById("message-field").val();
   let currenttime = Date().valueOf();
@@ -308,15 +309,27 @@ document.getElementById("send-btn").onclick = function(){
 }
   rtdb.update(chatRef, newmessage);
 };
-
-
+/*
+ let submitChat = document.getElementById("send-btn");
+ submitChat.addEventListener("click", sendChat);
+ let message = document.getElementById("message-field").val();
+const sendChat = () => {
+  let chatObject = {
+    message: message,
+    username: username,
+    timestamp: currenttime
+  }
+  rtdb.push(chatRef, chatObject);
+  message.value = '';
+}
+*/
 rtdb.onValue(chatRef, ss => {
   let allMessages = ss.val();
   let listOfMessages = document.getElementById("PastMessages");
   listOfMessages.innerHTML = ''; 
   for (const message in allMessages) {
     let displayedMessage = document.createElement('li');
-    let username = document.createElement('span');
+    let userName = document.createElement('span');
     listOfMessages.appendChild(displayedMessage);
     displayedMessage.innerText = allMessages[message].message;
 
