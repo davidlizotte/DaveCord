@@ -308,7 +308,7 @@ document.getElementById("send-btn").onclick = function(){
     "message": message,
     //"timestamp": currenttime
 }
-  rtdb.update(messageRef, chatObj);
+  rtdb.push(messageRef, chatObj);
 };
 /*
  let submitChat = document.getElementById("send-btn");
