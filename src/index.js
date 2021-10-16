@@ -307,7 +307,7 @@ document.getElementbyId("send-btn").onclick = function(){
     timestamp: currenttime
 }
   rtdb.push(chatRef, newmessage);
-});
+};
 
 
 rtdb.onValue(chatsRef, ss => {
