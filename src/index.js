@@ -300,22 +300,15 @@ document.getElementById("create-server-btn").onclick = function(){
 }
 //document.querySelector("#dbInput").value;
 document.getElementById("send-btn").onclick = function(){
-  loginForm = false;
-  signUpForm = false;
-  passwordResetPage = false;
-  mainPage = false;
-  serverPage = true;
-  window.addEventListener("hashchange", handleHash);
-  window.addEventListener("load", handleHash);
   let messageRef = rtdb.child(chatRef, "chats");
-  let message = document.getElementById("message-field").value;
+  let message1 = document.getElementById("message-field").value;
   //let currenttime = Date().valueOf();
   username = document.getElementById("user-username").value;
-  let chatObj = {
-    "message": "this will work"
+  let chatObj = { 
+    "message": message1
     //"timestamp": currenttime
-}
-  rtdb.push(messageRef, chatObj);
+};
+  rtdb.update(messageRef, chatObj);
 };
 /*
  let submitChat = document.getElementById("send-btn");
