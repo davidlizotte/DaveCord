@@ -1,24 +1,27 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
 import * as rtdb from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
 import * as fbauth from "https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyDgXv9AS14Q6Gpnlx61n1qmVk8CB_eDv9c",
-    authDomain: "davecord-ac92b.firebaseapp.com",
-    databaseURL: "https://davecord-ac92b-default-rtdb.firebaseio.com",
-    projectId: "davecord-ac92b",
-    storageBucket: "davecord-ac92b.appspot.com",
-    messagingSenderId: "667780713272",
-    appId: "1:667780713272:web:a4809e79815960100d0fcd"
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDv5qUNSsXsilVUTuEKyg2p4_i9mxc1Lj4",
+    authDomain: "discordserver-95266.firebaseapp.com",
+    databaseURL: "https://discordserver-95266-default-rtdb.firebaseio.com",
+    projectId: "discordserver-95266",
+    storageBucket: "discordserver-95266.appspot.com",
+    messagingSenderId: "436800369751",
+    appId: "1:436800369751:web:3a10ccd660d726757b1f12"
   };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-/* Connects Javascript code to Firebase database */
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
+/* Connects Javascript code to Firebase database */
 let db = rtdb.getDatabase(app);
 let auth = fbauth.getAuth(app);
 let titleRef = rtdb.ref(db, "/");
