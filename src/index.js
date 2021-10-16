@@ -298,7 +298,7 @@ document.getElementById("create-server-btn").onclick = function(){
 
     rtdb.update(nameRef, serverObj);
 }
-document.getElementbyId("send-btn").onclick = function(){
+document.getElementById("send-btn").onclick = function(){
   let message = document.getElementById("message-field").val();
   let currenttime = Date().valueOf();
   let newmessage = {
