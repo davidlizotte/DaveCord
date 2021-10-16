@@ -10,7 +10,7 @@ let loginForm = true; // Flag to check whether or not we are in Login page
 let passwordResetPage = false; // Flag to check whether or not we are in Password Reset page
 let mainPage = false;
 let serverPage = false;
-
+/*
 let memberClickHandler = function(member){
     if(adminstatus() == true){
         memberRef.child("member").child("admin").setValue(true);
@@ -40,7 +40,7 @@ let adminstatus = function(){
 }
                             
                            
-             
+ */            
                    
          
                    
