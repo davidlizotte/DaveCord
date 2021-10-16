@@ -305,7 +305,7 @@ document.getElementById("send-btn").onclick = function(){
   //let currenttime = Date().valueOf();
   username = document.getElementById("user-username").value;
   let chatObj = {
-    "message": message
+    "message": "hello"
     //"timestamp": currenttime
 }
   rtdb.push(messageRef, chatObj);
