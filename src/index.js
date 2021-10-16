@@ -298,14 +298,14 @@ document.getElementById("create-server-btn").onclick = function(){
 
     rtdb.update(nameRef, serverObj);
 }
-
+//document.querySelector("#dbInput").value;
 document.getElementById("send-btn").onclick = function(){
   let messageRef = rtdb.child(chatRef, "chats");
-  let message = document.getElementById("message-field").val();
+  let message = document.getElementById("message-field").value;
   //let currenttime = Date().valueOf();
   username = document.getElementById("user-username").value;
   let chatObj = {
-    "message": "hello"
+    "message": message;
     //"timestamp": currenttime
 }
   rtdb.push(messageRef, chatObj);
