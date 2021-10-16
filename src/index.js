@@ -305,7 +305,6 @@ document.getElementById("send-btn").onclick = function(){
   username = document.getElementById("user-username").value;
   let newmessage = {
     message: message,
-    username: username,
     timestamp: currenttime
 }
   rtdb.update(chatRef, newmessage);
