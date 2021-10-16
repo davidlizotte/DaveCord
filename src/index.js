@@ -1,6 +1,6 @@
 
 
-import {auth, fbauth, serverRef, memberRef, chatRef, appusersRef, rtdb} from './firebase-connection.js';
+import {auth, fbauth, serverRef, memberRef, chatRef, rtdb} from './firebase-connection.js';
 
 let username;
 let user;
@@ -10,7 +10,6 @@ let loginForm = true; // Flag to check whether or not we are in Login page
 let passwordResetPage = false; // Flag to check whether or not we are in Password Reset page
 let mainPage = false;
 let serverPage = false;
-let appuserID = 0;
 /*
 let memberClickHandler = function(member){
     if(adminstatus() == true){
@@ -48,17 +47,11 @@ let adminstatus = function(){
                    
         
 
-rtdb.get(appusersRef).then(ss=>{
-    ss.forEach(appuser=>{
-        appuserID = appuserID + 1;
-    });
-});
-
-let renderServerPage = function(serverName){
-    // Color up the server page before routing there
+let serverClickHandler = function(name){
+    let serverList = document.getElementById("serverlist");
     rtdb.get(serverRef).then(ss=>{
         ss.forEach(s=>{
-            if(s.val()["name"] == serverName){
+            if(s.val()["name"] == name){
                 let nameContainer = document.getElementById("nameOfServer");
                 nameContainer.innerHTML = "";
 
@@ -75,6 +68,9 @@ let renderServerPage = function(serverName){
                     currMember.innerHTML = member["username"];
                     currMember.style = "color: yellow";
                     membersList.appendChild(currMember);
+                    currMember.onclick = function(){
+                    memberClickHandler(member);
+            }
                 });
 
                 let adminContainer = document.getElementById("adminName");
@@ -87,71 +83,6 @@ let renderServerPage = function(serverName){
             }
         })
     });
-}
-
-let serverClickHandler = function(name, username, useremail){
-    let serverList = document.getElementById("serverlist");
-    let userExists = false;
-    let isAdmin = false;
-
-    // Display "Delete Server" button if the user who clicked the server link is an admin
-    // Also, add the user to "members" list of the given server if he/she is not already there
-    rtdb.get(serverRef).then(ss=>{
-        ss.forEach(server=>{
-            if(server.val()["name"] == name){
-                server.val()["members"].forEach(member=>{
-                    if(member["username"] == username && member["email"] == useremail){
-                        userExists = true;
-
-                        if(member["admin"]){
-                            isAdmin = true;
-                            document.getElementById("delete-server-btn-container").style = "display: block";
-                        }
-                        else{
-                            document.getElementById("delete-server-btn-container").style = "display: none";
-                        }
-                    }
-                });
-
-                if(!userExists){
-                    document.getElementById("join-server-btn-container").style = "display: block";
-
-                    document.getElementById("join-server-btn").onclick = function(){
-                        document.getElementById("join-server-btn-container").style = "display: none";
-                        document.getElementById("leave-server-btn-container").style = "display: block";
-
-                        let serverNameRef = rtdb.child(serverRef, name);
-                        let currMembers = server.val()["members"];
-                    
-                        let currMemberObj = {
-                            "admin": false,
-                            "userID": userUID,
-                            "username": username,
-                            "email": useremail
-                        }
-                    
-                        currMembers.push(currMemberObj);
-                    
-                        let membersObj = {
-                            "members": currMembers
-                        }
-                    
-                        rtdb.update(serverNameRef, membersObj);
-
-                        renderServerPage(name);
-                    };
-                    
-                }
-                else{
-                    if(!isAdmin){
-                        document.getElementById("leave-server-btn-container").style = "display: block";   
-                    }                
-                }
-            }
-        });
-    });
-
-    renderServerPage(name);
 
     loginForm = false;
     signUpForm = false;
@@ -159,7 +90,6 @@ let serverClickHandler = function(name, username, useremail){
     mainPage = false;
     serverPage = true;
 
-    // Route to the server page
     location.href = "#serverPage"
     window.addEventListener("hashchange", handleHash);
     window.addEventListener("load", handleHash);
@@ -180,7 +110,7 @@ let displayServers = function(){
             currServer.style = "color: white";
             currServer.id = serverName;
             currServer.onclick = function(){
-                serverClickHandler(currServer.id, username, userEmail);
+                serverClickHandler(currServer.id);
             }
 
             serverList.appendChild(currServer);
@@ -239,6 +169,8 @@ let handleHash = function(){
     }
 };
 
+document.getElementbyId
+
 document.getElementById("login-link").onclick = function(){
     loginForm = true;
     signUpForm = false;
@@ -284,16 +216,6 @@ document.getElementById("signup-btn").onclick = function(e){
     fbauth.createUserWithEmailAndPassword(auth, email, password).then(()=>{
         document.getElementById("signupChecker").innerText = "SIGNUP SUCCESSFUL!!!";
         username = document.getElementById("user-username").value;
-
-        // Write username and email upon signup to the firebase to retrieve user information on fly
-        let appuserIDRef = rtdb.child(appusersRef, String(appuserID));
-        appuserID = appuserID + 1;
-        let userObj = {
-            "email": String(email),
-            "username": String(username)
-        };
-        rtdb.update(appuserIDRef, userObj);
-
     }).catch(e=>{
         document.getElementById("signupChecker").innerText = "";
         alert(e.code);
@@ -313,17 +235,6 @@ document.getElementById("login-btn").onclick = function(){
         serverPage = false;
         user = auth.currentUser;       
         userUID = user.uid;
-        let emailStr = String(email);
-
-        // Read username from the database and store it in a variable for later use
-        rtdb.get(appusersRef).then(ss=>{
-            ss.forEach(appuser=>{
-                if(appuser.val()["email"] == emailStr){
-                    username = appuser.val()["username"];
-                    userEmail = emailStr;
-                }
-            });
-        });
 
         location.href = "#main_page";
         window.addEventListener("hashchange", handleHash);
@@ -361,7 +272,7 @@ document.getElementById("create-server-btn").onclick = function(){
     server.style = "color: white";
     server.id = serverName;
     server.onclick = function(){
-        serverClickHandler(server.id, username, userEmail);
+        serverClickHandler(server.id);
     }
     serverList.appendChild(server);
 
@@ -372,8 +283,7 @@ document.getElementById("create-server-btn").onclick = function(){
     let userObj = {
         "admin": true,
         "userID": userUID,
-        "username": username,
-        "email": userEmail
+        "username": String(username)
     }
 
     let serverObj = {
@@ -427,7 +337,6 @@ rtdb.onValue(chatRef, ss => {
   }
 });    
 
-
 document.getElementById("back-btn").onclick = function(){
     loginForm = false;
     signUpForm = true;
@@ -438,9 +347,6 @@ document.getElementById("back-btn").onclick = function(){
     document.getElementById("nameOfServer").innerHTML = "";
     document.getElementById("membersList").innerHTML = "";
     document.getElementById("adminName").innerHTML = "";
-    document.getElementById("leave-server-btn-container").style = "display: none";
-    document.getElementById("join-server-btn-container").style = "display: none";
-    document.getElementById("delete-server-btn-container").style = "display: none";
 
     location.href = "#main_page"
     window.addEventListener("hashchange", handleHash);
