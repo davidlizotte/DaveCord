@@ -27,6 +27,6 @@ let auth = fbauth.getAuth(app);
 let titleRef = rtdb.ref(db, "/");
 let serverRef = rtdb.child(titleRef, "Servers");
 let memberRef = rtdb.child(serverRef, "members");
-let chatRef = rtdb.child(serverRef, "chats")
+let chatRef = rtdb.child(serverRef, "chats");
 
 export {auth, fbauth, serverRef, memberRef, chatRef, rtdb};
