@@ -312,7 +312,7 @@ document.getElementById("send-btn").onclick = function(){
   //let currenttime = Date().valueOf();
   username = document.getElementById("user-username").value;
   let chatObj = {
-    "message": message
+    "message": "this will work"
     //"timestamp": currenttime
 }
   rtdb.push(messageRef, chatObj);
