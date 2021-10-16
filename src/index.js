@@ -304,11 +304,11 @@ document.getElementById("send-btn").onclick = function(){
   let message = document.getElementById("message-field").val();
   let currenttime = Date().valueOf();
   username = document.getElementById("user-username").value;
-  let newmessage = {
-    message: message,
-    timestamp: currenttime
+  let chatObj = {
+    "message": message,
+    "timestamp": currenttime
 }
-  rtdb.update(chatRef, newmessage);
+  rtdb.update(messageRef, chatObj);
 };
 /*
  let submitChat = document.getElementById("send-btn");
