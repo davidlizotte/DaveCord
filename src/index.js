@@ -301,12 +301,12 @@ document.getElementById("create-server-btn").onclick = function(){
 document.getElementbyId("send-btn").onclick = function(){
   let message = document.getElementById("message-field").val();
   let currenttime = Date().valueOf();
-  let message = {
+  let newmessage = {
     message: message,
     username: username,
     timestamp: currenttime
 }
-  rtdb.push(chatRef, message);
+  rtdb.push(chatRef, newmessage);
 });
 
 
