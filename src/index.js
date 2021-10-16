@@ -298,6 +298,30 @@ document.getElementById("create-server-btn").onclick = function(){
 
     rtdb.update(nameRef, serverObj);
 }
+document.getElementbyId("send-btn").onclick = function(){
+  let message = document.getElementById("message-field").val();
+  let currenttime = Date().valueOf();
+  let message = {
+    message: message,
+    username: username,
+    timestamp: currenttime
+}
+  rtdb.push(chatRef, message);
+});
+
+
+rtdb.onValue(chatsRef, ss => {
+  let allMessages = ss.val();
+  let ListOfMessages = document.getElementById("PastMessages");
+  listOfMessages.innerHTML = ''; 
+  for (const message in allMessages) {
+    let displayedMessage = document.createElement('li');
+    let username = document.createElement('span');
+    listOfMessages.appendChild(displayedMessage);
+    displayedMessage.innerText = allMessages[message].message;
+
+  }
+});    
 
 document.getElementById("back-btn").onclick = function(){
     loginForm = false;
