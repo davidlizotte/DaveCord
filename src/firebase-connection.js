@@ -29,4 +29,4 @@ let serverRef = rtdb.child(titleRef, "Servers");
 let memberRef = rtdb.child(serverRef, "members");
 let chatRef = rtdb.child(serverRef, "chats");
 
-export {auth, fbauth, serverRef, memberRef, chatRef, rtdb};
+export {auth, fbauth, serverRef, memberRef, appusersRef, chatRef, rtdb};
