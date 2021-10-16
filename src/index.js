@@ -310,9 +310,9 @@ document.getElementById("send-btn").onclick = function(){
 };
 
 
-rtdb.onValue(chatsRef, ss => {
+rtdb.onValue(chatRef, ss => {
   let allMessages = ss.val();
-  let ListOfMessages = document.getElementById("PastMessages");
+  let listOfMessages = document.getElementById("PastMessages");
   listOfMessages.innerHTML = ''; 
   for (const message in allMessages) {
     let displayedMessage = document.createElement('li');
