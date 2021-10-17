@@ -10,7 +10,7 @@ let loginForm = true; // Flag to check whether or not we are in Login page
 let passwordResetPage = false; // Flag to check whether or not we are in Password Reset page
 let mainPage = false;
 let serverPage = false;
-int index = 0;
+let index = 0;
 
 
 /*
