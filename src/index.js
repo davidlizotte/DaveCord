@@ -113,8 +113,12 @@ let serverClickHandler = function(name){
   let listOfMessages = document.getElementById("PastMessages");
   listOfMessages.innerHTML = ''; 
   for (const message in allMessages) {
+    let currenttime = Date().valueOf();
+    let displayuser = document.createElement('div');
+    displayuser.innerText = username + " " + currenttime;
     let displayedMessage = document.createElement('ul');
     let userName = document.createElement('span');
+    listOfmessages.appendChild(displayuser);
     listOfMessages.appendChild(displayedMessage);
     displayedMessage.innerText = allMessages[message].message;
 
