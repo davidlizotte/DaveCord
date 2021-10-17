@@ -108,7 +108,7 @@ let serverClickHandler = function(name){
         rtdb.push(messagegroupRef, chatObj);
     };
     
-    rtdb.onValue(messagegroupRef ,ss => {
+    rtdb.onValue(messageRef ,ss => {
   let allMessages = ss.val();
   let listOfMessages = document.getElementById("PastMessages");
   listOfMessages.innerHTML = ''; 
