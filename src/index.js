@@ -83,11 +83,11 @@ let serverClickHandler = function(name){
             }
         })
     });
-    
-    document.getElementById("send-btn").onclick = function(){
-        let currentserver = document.getElementById("nameofserver"); 
+    let currentserver = document.getElementById("nameofserver"); 
         let servernameRef = rtdb.child(serverRef, currentserver);
         let messageRef = rtdb.child(servernameRef, "chats");
+    
+    document.getElementById("send-btn").onclick = function(){
         let message1 = document.getElementById("message-field").value;
         //let currenttime = Date().valueOf();
         username = document.getElementById("user-username").value;
@@ -97,6 +97,19 @@ let serverClickHandler = function(name){
         };
         rtdb.update(messageRef, chatObj);
     };
+    
+    rtdb.onValue(messageRef).then(ss => {
+  let allMessages = ss.val();
+  let listOfMessages = document.getElementById("PastMessages");
+  listOfMessages.innerHTML = ''; 
+  for (const message in allMessages) {
+    let displayedMessage = document.createElement('li');
+    let userName = document.createElement('span');
+    listOfMessages.appendChild(displayedMessage);
+    displayedMessage.innerText = allMessages[message].message;
+
+  }
+}); 
 
     loginForm = false;
     signUpForm = false;
@@ -328,18 +341,7 @@ const sendChat = () => {
   message.value = '';
 }
 */
-rtdb.onValue(chatRef, ss => {
-  let allMessages = ss.val();
-  let listOfMessages = document.getElementById("PastMessages");
-  listOfMessages.innerHTML = ''; 
-  for (const message in allMessages) {
-    let displayedMessage = document.createElement('li');
-    let userName = document.createElement('span');
-    listOfMessages.appendChild(displayedMessage);
-    displayedMessage.innerText = allMessages[message].message;
-
-  }
-});    
+   
 
 document.getElementById("back-btn").onclick = function(){
     loginForm = false;
