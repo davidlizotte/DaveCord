@@ -105,7 +105,7 @@ let serverClickHandler = function(name){
         };
        
         
-        rtdb.update(messagegroupRef, chatObj);
+        rtdb.push(messagegroupRef, chatObj);
     };
     
     rtdb.onValue(messagegroupRef ,ss => {
