@@ -118,7 +118,7 @@ let serverClickHandler = function(name){
     displayuser.innerText = username + " " + currenttime;
     let displayedMessage = document.createElement('ul');
     let userName = document.createElement('span');
-    listOfmessages.appendChild(displayuser);
+    listOfMessages.appendChild(displayuser);
     listOfMessages.appendChild(displayedMessage);
     displayedMessage.innerText = allMessages[message].message;
 
