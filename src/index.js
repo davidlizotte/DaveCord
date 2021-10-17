@@ -10,6 +10,9 @@ let loginForm = true; // Flag to check whether or not we are in Login page
 let passwordResetPage = false; // Flag to check whether or not we are in Password Reset page
 let mainPage = false;
 let serverPage = false;
+int index = 0;
+
+
 /*
 let memberClickHandler = function(member){
     if(adminstatus() == true){
@@ -85,21 +88,27 @@ let serverClickHandler = function(name){
     });
    
     let servernameRef = rtdb.child(serverRef, name);
-    let messageRef = rtdb.child(servernameRef, "chats");    
+    let messageRef = rtdb.child(servernameRef, "chats");
+    let messagegroupRef = rtdb.child(messageRef, "message");
     document.getElementById("send-btn").onclick = function(){
         let servernameRef = rtdb.child(serverRef, name);
         let messageRef = rtdb.child(servernameRef, "chats");
+        let messagegroupRef = rtdb.child(messageRef, "message");
         let message1 = document.getElementById("message-field").value;
-        //let currenttime = Date().valueOf();
-        username = document.getElementById("user-username").value;
+        let currenttime = Date().valueOf();
+        let username = document.getElementById("user-username").value;
+        
         let chatObj = { 
-            "message": message1
-         //"timestamp": currenttime
+            "message": message1,
+            "timestamp": currenttime,
+            "username": username
         };
-        rtdb.update(messageRef, chatObj);
+       
+        
+        rtdb.update(messagegroupRef, chatObj);
     };
     
-    rtdb.onValue(messageRef ,ss => {
+    rtdb.onValue(messagegroupRef ,ss => {
   let allMessages = ss.val();
   let listOfMessages = document.getElementById("PastMessages");
   listOfMessages.innerHTML = ''; 
@@ -313,10 +322,16 @@ document.getElementById("create-server-btn").onclick = function(){
         "userID": userUID,
         "username": String(username)
     }
-
+    let chatObj = {
+        "text": "Welcome to the " + serverName + " server",
+        "timestamp": "none",
+        "username": "Discord Team"
+    }
     let serverObj = {
         "name": serverName,
-        "chats": [],
+        "chats": [
+            chatObj
+        ],
         "members": [
             userObj
         ],
