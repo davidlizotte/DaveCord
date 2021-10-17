@@ -118,7 +118,11 @@ let serverClickHandler = function(name){
     let username = document.getElementById("user-username").value;
     displayuser.innerText = username + " " + currenttime;
     let displayedMessage = document.createElement('ul');
-    if(message.username == username) displayedMessage.addstyle("text-align:right";                           
+    if(message.username == username){ 
+        displayedMessage.addstyle("text-align:right"); 
+    }else{
+        displayedMessage.addstyle("text-align:right");
+    }
     let userName = document.createElement('span');
     listOfMessages.appendChild(displayuser);
     listOfMessages.appendChild(displayedMessage);
