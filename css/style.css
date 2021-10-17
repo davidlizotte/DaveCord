@@ -5,7 +5,12 @@
   text-align: center;
 
 }
-
+.personalMessage{
+  text-align: right;
+}
+.otherMessage{
+  text-align: left;
+}
 
 .ListofChats{
   height:80%;
