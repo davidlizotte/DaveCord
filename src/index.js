@@ -95,6 +95,7 @@ let serverClickHandler = function(name){
         let messageRef = rtdb.child(servernameRef, "chats");
         let messagegroupRef = rtdb.child(messageRef, "message");
         let message1 = document.getElementById("message-field").value;
+        document.getElementById("message-field").value="";
         let currenttime = Date().valueOf();
         let username = document.getElementById("user-username").value;
         
