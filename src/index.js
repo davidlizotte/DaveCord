@@ -84,10 +84,11 @@ let serverClickHandler = function(name){
         })
     });
    
-        let servernameRef = rtdb.child(serverRef, name);
-        let messageRef = rtdb.child(servernameRef, "chats");
+
     
     document.getElementById("send-btn").onclick = function(){
+        let servernameRef = rtdb.child(serverRef, name);
+        let messageRef = rtdb.child(servernameRef, "chats");
         let message1 = document.getElementById("message-field").value;
         //let currenttime = Date().valueOf();
         username = document.getElementById("user-username").value;
