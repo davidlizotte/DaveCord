@@ -99,7 +99,7 @@ let serverClickHandler = function(name){
         rtdb.update(messageRef, chatObj);
     };
     
-    rtdb.onValue(messageRef).then(ss => {
+    rtdb.onValue(messageRef ,ss => {
   let allMessages = ss.val();
   let listOfMessages = document.getElementById("PastMessages");
   listOfMessages.innerHTML = ''; 
