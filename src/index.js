@@ -98,7 +98,7 @@ let serverClickHandler = function(name){
         };
         rtdb.update(messageRef, chatObj);
     };
-    
+ /*   
     rtdb.onValue(messageRef).then(ss => {
   let allMessages = ss.val();
   let listOfMessages = document.getElementById("PastMessages");
@@ -110,6 +110,7 @@ let serverClickHandler = function(name){
     displayedMessage.innerText = allMessages[message].message;
 
   }
+  */
 }); 
 
     loginForm = false;
