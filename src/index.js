@@ -84,8 +84,8 @@ let serverClickHandler = function(name){
         })
     });
    
-
-    
+    let servernameRef = rtdb.child(serverRef, name);
+    let messageRef = rtdb.child(servernameRef, "chats");    
     document.getElementById("send-btn").onclick = function(){
         let servernameRef = rtdb.child(serverRef, name);
         let messageRef = rtdb.child(servernameRef, "chats");
@@ -98,7 +98,7 @@ let serverClickHandler = function(name){
         };
         rtdb.update(messageRef, chatObj);
     };
- /*   
+    
     rtdb.onValue(messageRef).then(ss => {
   let allMessages = ss.val();
   let listOfMessages = document.getElementById("PastMessages");
@@ -111,7 +111,7 @@ let serverClickHandler = function(name){
 
   }
 }); 
-*/
+
     loginForm = false;
     signUpForm = false;
     passwordResetPage = false;
