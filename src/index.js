@@ -83,8 +83,8 @@ let serverClickHandler = function(name){
             }
         })
     });
-    let currentserver = document.getElementById("nameofserver"); 
-        let servernameRef = rtdb.child(serverRef, currentserver);
+   
+        let servernameRef = rtdb.child(serverRef, name);
         let messageRef = rtdb.child(servernameRef, "chats");
     
     document.getElementById("send-btn").onclick = function(){
