@@ -126,7 +126,7 @@ let serverClickHandler = function(name){
        
     }else{
        let displayedMessage = document.createElement('ul');
-       displayedMessage.setAttribute("class", "othermessage");
+       displayedMessage.setAttribute("class", "personalmessage");
     }
     let userName = document.createElement('span');
     listOfMessages.appendChild(displayuser);
