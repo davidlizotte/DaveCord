@@ -1,6 +1,6 @@
 
 
-import {auth, fbauth, serverRef, memberRef, chatRef, rtdb} from './firebase-connection.js';
+import {auth, fbauth, serverRef, rtdb} from './firebase-connection.js';
 
 let username;
 let user;
@@ -42,7 +42,7 @@ let adminstatus = function(){
                            
  */            
                    
-         
+
                    
                    
         
@@ -83,6 +83,20 @@ let serverClickHandler = function(name){
             }
         })
     });
+    
+    document.getElementById("send-btn").onclick = function(){
+        let currentserver = document.getElementById("nameofserver"); 
+        let servernameRef = rtdb.child(serverRef, currentserver);
+        let messageRef = rtdb.child(servernameRef, "chats");
+        let message1 = document.getElementById("message-field").value;
+        //let currenttime = Date().valueOf();
+        username = document.getElementById("user-username").value;
+        let chatObj = { 
+            "message": message1
+         //"timestamp": currenttime
+        };
+        rtdb.update(messageRef, chatObj);
+    };
 
     loginForm = false;
     signUpForm = false;
@@ -299,17 +313,7 @@ document.getElementById("create-server-btn").onclick = function(){
     rtdb.update(nameRef, serverObj);
 }
 //document.querySelector("#dbInput").value;
-document.getElementById("send-btn").onclick = function(){
-  let messageRef = rtdb.child(chatRef, "chats");
-  let message1 = document.getElementById("message-field").value;
-  //let currenttime = Date().valueOf();
-  username = document.getElementById("user-username").value;
-  let chatObj = { 
-    "message": message1
-    //"timestamp": currenttime
-};
-  rtdb.update(messageRef, chatObj);
-};
+
 /*
  let submitChat = document.getElementById("send-btn");
  submitChat.addEventListener("click", sendChat);
