@@ -110,9 +110,8 @@ let serverClickHandler = function(name){
     displayedMessage.innerText = allMessages[message].message;
 
   }
-  */
 }); 
-
+*/
     loginForm = false;
     signUpForm = false;
     passwordResetPage = false;
