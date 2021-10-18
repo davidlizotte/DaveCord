@@ -40,7 +40,7 @@ let makeAdminAction = function(serverName, username, useremail){
                            let memberRef = rtdb.child(serverNameRef, member);
                            let roleObj ={
                                "role": {
-                                 "admin": false
+                                 "admin": true
                                }
                            };
                             rtdb.update(memberRef,roleObj);
