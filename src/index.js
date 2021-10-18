@@ -86,7 +86,7 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
                                     }
                                 
                                     if(makeAdmin){
-                                        makeAdminAction();
+                                        makeAdminAction(serverName, );
                                     }
                                     // 2. Render the given server page again with modified settings
                                     renderServerPage(serverName);
