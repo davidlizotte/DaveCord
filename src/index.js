@@ -30,6 +30,17 @@ let banMemberAction = function(serverName, username, useremail){
 };
 
 let makeAdminAction = function(serverName, username, useremail){
+        let serverNameRef = rtdb.child(serverRef, servername);
+        rtdb.get(serverNameRef).then(ss=>{
+        if(member["username"] == username){
+            let memberRef = rtdb.child(serverNameRef, member)
+            let roleObj ={
+                 "role": {
+                  "admin: true"
+            };
+            rtdb.update(memberRef,roleObj);
+        }
+    });
     // 1. Set "admin" role to be true for the given user in database
 
 };
@@ -121,7 +132,7 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
                                     }
                                 
                                     if(makeAdmin){
-                                        makeAdminAction();
+                                        makeAdminAction(ServerName, username, useremail);
                                     }
 
                                     // 2. Render the given server page again with modified settings
