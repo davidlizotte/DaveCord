@@ -39,7 +39,7 @@ let makeAdminAction = function(serverName, username, useremail){
                     server.val()["members"].forEach(member=>{
                         if(member["username"] == username && member["email"] == useremail){
                         
-                           let memberRef = rtdb.child(serverNameRef, index);
+                           let memberRef = rtdb.child(serverNameRef, String(index));
                            let currMemberObj ={
                                "role": {
                                  "admin": true
