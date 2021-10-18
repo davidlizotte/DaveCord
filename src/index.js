@@ -34,17 +34,17 @@ let makeAdminAction = function(serverName, username, useremail){
         let serverNameRef = rtdb.child(serverRef, serverName);
         rtdb.get(serverNameRef).then(ss=>{
             ss.forEach(member=>{
-        if(member["username"] == username){
-            let memberRef = rtdb.child(serverNameRef, member)
-            let roleObj ={
-                "role": {
-                  "admin": false
-                }
-            };
-            rtdb.update(memberRef,roleObj);
-        }
-            });
-    });
+               if(member["username"] == username){
+                  let memberRef = rtdb.child(serverNameRef, member)
+                  let roleObj ={
+                      "role": {
+                        "admin": false
+                      }
+                  };
+                  rtdb.update(memberRef,roleObj);
+               }
+           });
+       });
 
 };
 
