@@ -1,5 +1,3 @@
-
-
 import {auth, fbauth, serverRef, appusersRef, rtdb} from './firebase-connection.js';
 
 let username;
@@ -37,6 +35,9 @@ let makeAdminAction = function(serverName, username, useremail){
 };
 
 let renderServerPage = function(serverName, username, useremail, isAdmin){
+
+    let isCurrentMemberAdmin = false;
+
     // Color up the server page before routing there
     rtdb.get(serverRef).then(ss=>{
         ss.forEach(s=>{
@@ -61,10 +62,44 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
                     }
                     else{
                         if(isAdmin){
+                            if(member["role"]["admin"]){
+                                isCurrentMemberAdmin = true;
+                            }        
                             currMember.style = "color: yellow; text-align: center; cursor: pointer";
                             currMember.onclick = function(){
                                 document.getElementById("messagebar").style = "display: none";
                                 document.getElementById("user-settings").style = "display: block";
+
+                                if(isCurrentMemberAdmin){
+                                    document.getElementById("roles-container").innerHTML = "<br> Admin <br> Member";
+                                    isCurrentMemberAdmin = false;
+                                }
+                                else{
+                                    document.getElementById("roles-container").innerHTML = "<br> Member";
+                                }
+
+                                document.getElementById("roles-tab").onclick = function() {
+                                    document.getElementById("roles-tab").style = "color: grey; text-decoration: underline; cursor: pointer";
+                                    document.getElementById("permissions-tab").style = "color: grey; text-decoration: none; cursor: pointer";
+                                    if(isCurrentMemberAdmin){
+                                        document.getElementById("roles-container").innerHTML = "<br> Admin <br> Member";
+                                        isCurrentMemberAdmin = false;
+                                    }
+                                    else{
+                                        document.getElementById("roles-container").innerHTML = "<br> Member";
+                                    }
+    
+                                    document.getElementById("roles-container").style = "display: block";
+                                    document.getElementById("permissions-container").style = "display: none";
+                                };
+                                
+                                document.getElementById("permissions-tab").onclick = function() {
+                                    document.getElementById("permissions-tab").style = "color: grey; text-decoration: underline; cursor: pointer";
+                                    document.getElementById("roles-tab").style = "color: grey; text-decoration: none; cursor: pointer";
+                                    document.getElementById("roles-container").style = "display: none";
+                                    document.getElementById("permissions-container").style = "display: block";
+                                };
+                                
                             /*
                                 document.getElementById("submit-changes-btn").onclick = function(){
                                     let kickMember = false;
@@ -86,8 +121,9 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
                                     }
                                 
                                     if(makeAdmin){
-                                        makeAdminAction(serverName, );
+                                        makeAdminAction();
                                     }
+
                                     // 2. Render the given server page again with modified settings
                                     renderServerPage(serverName);
                                 
@@ -101,6 +137,10 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
                                 document.getElementById("close-btn").onclick = function(){
                                     document.getElementById("user-settings").style.display = "none";
                                     document.getElementById("messagebar").style = "display: block";
+                                    document.getElementById("roles-tab").style = "color: grey; text-decoration: underline; cursor: pointer";
+                                    document.getElementById("permissions-tab").style = "color: grey; text-decoration: none; cursor: pointer";
+                                    document.getElementById("roles-container").style = "display: block";
+                                    document.getElementById("permissions-container").style = "display: none";
                                 }
                                 
                             }
@@ -125,7 +165,6 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
         })
     });
 }
-
 
 let serverClickHandler = function(name, username, useremail){
     let serverList = document.getElementById("serverlist");
