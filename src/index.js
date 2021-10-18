@@ -39,7 +39,8 @@ let makeAdminAction = function(serverName, username, useremail){
             let roleObj ={
                 "role": {
                   "admin": false
-            }
+                }
+            };
             rtdb.update(memberRef,roleObj);
         }
             });
