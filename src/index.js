@@ -54,7 +54,9 @@ let makeAdminAction = function(serverName, username, useremail){
                            };
                             
                             let memberObj = {
-                                String(index) : currMemberObj
+                                String(index):{
+                                currMemberObj
+                                }
                             };
                             
                             rtdb.update(currMemberRef, memberObj);
