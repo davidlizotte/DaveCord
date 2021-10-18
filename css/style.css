@@ -14,24 +14,24 @@
 
 .ListofChats{
   height:80%;
-  background-color:white;
+  background-color: white;
   border: 15px solid aqua;
   border-radius:2px;
 }
 
 .Messagebar{
-position: relative;
-padding: 30px;
-left: 200px;
-width:1000px;
-height: 40rem;
+  position: static;
+  padding: 30px;
+  left: 200px;
+  width:800px;
+  height: 50rem;
 }
 .Messagesender{
- position:absolute;
- bottom:50px;
- width:700px;
- text-align: center;
- left: 200px;
+  position:absolute;
+  bottom:50px;
+  width:700px;
+  text-align: center;
+  left: 200px;
 }
 
 #send-btn{
@@ -48,10 +48,6 @@ height: 40rem;
   height:60px;
 
 }
-#sendMsgBtn.hover{
-  background-color:white;
-  color:white;
-}
 
 .input_msg{
  width: 50%;
@@ -65,8 +61,9 @@ height: 40rem;
  text-align:left;
 }
 
+
 #addserver-btn {
-  font-size:20px; 
+  font-size:15px; 
   color:black; 
   padding: 10px 10px; 
   border-radius: 12px;
@@ -77,6 +74,75 @@ height: 40rem;
   background-color: black;
   color: white;
 }
+
+#join-server-btn {
+  font-size:15px; 
+  color:black; 
+  padding: 10px 10px; 
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+#join-server-btn:hover{
+  background-color: black;
+  color: white;
+}
+
+
+#leave-server-btn {
+  font-size:15px; 
+  color:black; 
+  padding: 10px 10px; 
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+#leave-server-btn:hover{
+  background-color: black;
+  color: white;
+}
+
+
+#delete-server-btn {
+  font-size:15px; 
+  color:black; 
+  padding: 10px 10px; 
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+#delete-server-btn:hover{
+  background-color: black;
+  color: white;
+}
+
+
+#logout-btn {
+  font-size:15px; 
+  color:black; 
+  padding: 10px 10px; 
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+#logout-btn:hover{
+  background-color: black;
+  color: white;
+}
+
+#back-btn {
+  font-size:15px; 
+  color:black; 
+  padding: 10px 10px; 
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+#back-btn:hover{
+  background-color: black;
+  color: white;
+}
+
 
 #signupChecker{
   text-align: center;
@@ -96,19 +162,34 @@ body{
  background:var(--color-primary);
  background-size: cover;
 }
-.container{
+
+#user-settings {
+  width: 400px;
+  max-width: 400px;
+  margin: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+}
+
+.user-settings-group{
+  margin-bottom: 1rem;
+ }
+
+.form-button{
+  font: 500 1rem 'Quicksand', sans-serif;
+ }
  
+.container{
  width: 400px;
- max-width: 4000px;
+ max-width: 400px;
  margin: 1rem;
  padding: 2rem;
  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
  background: #ffffff;
 
 }
-.container #main_page{
-  display:none;
-}
+
 .form-input-group{
  margin-bottom: 1rem;
 }
