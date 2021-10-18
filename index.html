@@ -64,16 +64,19 @@
    <form class="form" style="display: none" id="main_page">
     <div class="wrapper" id="wrapper-sidebar">
      <div class="sidebar">
+      <input type="button" value="Add Server" id="addserver-btn"> &nbsp;
+      <input type="button" value="Logout" id="logout-btn">
+
       <h2>Servers</h2>
       <div class="servers">
-       <input type="button" value="Add Server" id="addserver-btn">
-       <br><br>
        <div id="serverlist">
        </div>
+
       </div>
      </div>
     </div>
    </form>
+
    <form class="form" style="display: none" id="create-server">
     <h1 class="form-title">Create A Server</h1>
     <div class="server-input-group">
@@ -83,11 +86,20 @@
     </div>
    </form>
   </div>
+
    <form class="form" style="display: none" id="serverPage">
     <div class="wrapper" id="wrapper-sidebar">
      <div class="sidebar">
       <div style="text-align: center">
-        <input type="button" value="Leave Server" id="back-btn"> 
+        <div style="display: none" id="join-server-btn-container">
+          <input type="button" value="Join Server" id="join-server-btn">
+        </div>
+        <div style="display: none" id="leave-server-btn-container">
+          <input type="button" value="Leave Server" id="leave-server-btn">
+        </div>
+        <div style="display: none" id="delete-server-btn-container"> 
+          <input type="button" value="Delete Server" id="delete-server-btn">
+        </div>
       </div>  
       <h2>Server Name</h2>
       <div id="nameOfServer">
@@ -100,25 +112,32 @@
       <h2> Admin </h2>
       <div id="adminName">
       </div>
-     </div>
-<div class="Messagebar">
-    <div id="PastMessages"class="ListofChats">
-    </div>
-    <div class="Messagesender">
-      <input type="text" id="message-field" class="input_msg" placeholder ="Type your message"></input>
-     <input type="button" value="Send" id="send-btn">
-    </div>
-     </div>
-     <div class="Messagesender" style="display:none">
-      <input type="text" id="neweditedmessage" class="input_msg" placeholder ="Type your edit"></input>
-      <input type="button" value="Send" id="edit-btn">
-     </div>
-      
-                      
-         
+      <br>
+      <br>
+      <div style="text-align: center" id="back-btn-container">
+        <input type="button" value="<< Back" id="back-btn">
+      </div>  
 
      </div>
     </div>
+     <div class="Messagebar" id="messagebar" style="display:none">
+       <div id="PastMessages"class="ListofChats">
+       </div>
+       <div class="Messagesender">
+        <input type="text" id="message-field" class="input_msg" placeholder ="Type your message"></input>
+        <input type="button" value="Send" id="send-btn">
+       </div>
+     </div>
    </form>
+  </div>
+
+  <form class="form" style="display: none" id="user-settings">
+    <h1 class="form-title">User Settings</h1>
+    <div class="user-settings-group">
+    
+     <input type="button" class="form-button" value="Submit Changes" id="submit-changes-btn"> <br> <br>
+     <input type="button" class="form-button" value="Close" id="close-btn">
+    </div>
+  </form>
  </body>
 </html>
