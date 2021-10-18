@@ -31,10 +31,6 @@ let banMemberAction = function(serverName, username, useremail){
 
 let makeAdminAction = function(serverName, username, useremail){
     // 1. Set "admin" role to be true for the given user in database
-    ss.forEach(server=>{
-            if(server.val()["name"] == name){
-                server.val()["members"].forEach(member=>{
-                    if(member["username"] == username &
         let serverNameRef = rtdb.child(serverRef, serverName);
         rtdb.get(serverNameRef).then(ss=>{
             ss.forEach(member=>{
