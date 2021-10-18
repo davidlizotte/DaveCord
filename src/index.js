@@ -117,8 +117,8 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
                             if(member["role"]["admin"]){
                                 isCurrentMemberAdmin = true;
                             }        
-                            currentMemberUserName = currMember["username"];
-                            currentMemberEmail = currMember["email"];
+                            currentMemberUserName = member["username"];
+                            currentMemberEmail = member["email"];
                             
                             currMember.style = "color: yellow; text-align: center; cursor: pointer";
                             currMember.onclick = function(){
