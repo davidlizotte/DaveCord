@@ -184,7 +184,7 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
                                     }
                                 
                                     if(makeAdmin){
-                                        makeAdminAction(serverName, username, useremail);
+                                        makeAdminAction(serverName, currMember["username"], currMember["useremail"]);
                                     }
 
                                     // 2. Close the "User Settings" Form
