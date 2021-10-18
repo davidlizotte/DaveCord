@@ -134,7 +134,32 @@
   <form class="form" style="display: none" id="user-settings">
     <h1 class="form-title">User Settings</h1>
     <div class="user-settings-group">
-    
+     <span style="color: grey; text-decoration: underline; cursor: pointer" id="roles-tab"> Roles </span> &nbsp; &nbsp;
+     <span style="color: grey; cursor: pointer" id="permissions-tab"> Permissions </span>
+     <div id="roles-container">
+     </div>
+
+     <div id="permissions-container" style="display: none">
+      <br>
+      <div id="kick-user-checkbox-container">
+        <input type="checkbox" id="kickUserCheckbox">
+        <label> Kick User </label>
+      </div>  
+
+      <div id="ban-user-checkbox-container">
+        <input type="checkbox" id="banUserCheckbox">
+        <label> Ban User </label>
+      </div>
+
+      <div id="make-admin-checkbox-container">
+        <input type="checkbox" id="makeAdminCheckbox">
+        <label> Make Admin </label>
+      </div>
+     </div>
+
+     <br>
+     <br>
+
      <input type="button" class="form-button" value="Submit Changes" id="submit-changes-btn"> <br> <br>
      <input type="button" class="form-button" value="Close" id="close-btn">
     </div>
