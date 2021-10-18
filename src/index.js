@@ -189,6 +189,7 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
                                     }
                                 
                                     if(makeAdmin){
+                                        alert(currentMemberUserName + " " + currentMemberEmail);
                                         makeAdminAction(serverName, currentMemberUserName, currentMemberEmail);
                                     }
 
