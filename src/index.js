@@ -1,6 +1,6 @@
 import {auth, fbauth, serverRef, appusersRef, rtdb} from './firebase-connection.js';
 
-let username;
+let userName;
 let userEmail;
 let user;
 let userUID;
@@ -411,7 +411,7 @@ let displayServers = function(){
             currServer.style = "color: yellow; text-align: center; cursor: pointer";
             currServer.id = serverName;
             currServer.onclick = function(){
-                serverClickHandler(currServer.id, username, userEmail);
+                serverClickHandler(currServer.id, userName, userEmail);
             }
 
             serverList.appendChild(currServer);
@@ -516,14 +516,14 @@ document.getElementById("signup-btn").onclick = function(e){
 
     fbauth.createUserWithEmailAndPassword(auth, email, password).then(()=>{
         document.getElementById("signupChecker").innerText = "SIGNUP SUCCESSFUL!!!";
-        username = document.getElementById("user-username").value;
+        userName = document.getElementById("user-username").value;
 
         // Write username and email upon signup to the firebase to retrieve user information on fly
         let appuserIDRef = rtdb.child(appusersRef, String(appuserID));
         appuserID = appuserID + 1;
         let userObj = {
             "email": String(email),
-            "username": String(username)
+            "username": String(userName)
         };
         rtdb.update(appuserIDRef, userObj);
 
@@ -552,7 +552,7 @@ document.getElementById("login-btn").onclick = function(){
         rtdb.get(appusersRef).then(ss=>{
             ss.forEach(appuser=>{
                 if(appuser.val()["email"] == emailStr){
-                    username = appuser.val()["username"];
+                    userName = appuser.val()["username"];
                     userEmail = emailStr;
                 }
             });
@@ -594,7 +594,7 @@ document.getElementById("create-server-btn").onclick = function(){
     server.style = "color: yellow; text-align: center; cursor: pointer";
     server.id = serverName;
     server.onclick = function(){
-        serverClickHandler(server.id, username, userEmail);
+        serverClickHandler(server.id, userName, userEmail);
     }
     serverList.appendChild(server);
 
@@ -607,7 +607,7 @@ document.getElementById("create-server-btn").onclick = function(){
             "admin": true
         },
         "userID": userUID,
-        "username": username,
+        "username": userName,
         "email": userEmail
     }
 
