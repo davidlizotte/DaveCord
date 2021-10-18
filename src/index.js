@@ -107,7 +107,37 @@ let serverClickHandler = function(name){
        
         
         rtdb.push(messagegroupRef, chatObj);
+    let chats = document.getElementById("chats");
+    let message = document.createElement("div");
+    let editMessage = document.createElement("div");
+    message.className= "msg";
+    message.innerHTML = chatObj.message;
+    let textbox = document.createElement("input");
+    textBox.type = "text";
+    textBox.id = "edit-field-id-" + String(chatObj.id);
+    textBox.placeholder = "Edit Your Message";
+    
+    let sendbtn = document.createElement("input");
+    sendbtn.type = "button";
+    sendbtn.id = "send-edit-btn-id-" + String(chatObj.id);
+    sendbtn.value = "send your edit";
+    
+    editMessage.appendChild(textbox);
+    editMessage.appendChild(sendbtn);
+    
+    editMessage.style = "display: none";
+    message.onclick = function(){
+        editMessage.style = "display: block";
+        document.getElementById("send-edit-btn-id-" + String(chatObj.id)).onclick = function(){
+            chatIDObj.edited = true;
+            message.innerHTML = document.getElementById("edit-field-id-"+String(chatObj.id)).value + "(Edited)";
+            rtdb.update(messagegroupRef, chatObj);
+            editMessage.style = "display: none";
+        }
     };
+    }
+                                
+                               
     
     rtdb.onValue(messagegroupRef ,ss => {
   let allMessages = ss.val();
@@ -148,6 +178,7 @@ let serverClickHandler = function(name){
     
     serverList.innerHTML = "";
 }
+
 
 let displayServers = function(){
     let serverList = document.getElementById("serverlist");
