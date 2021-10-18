@@ -35,7 +35,7 @@ let makeAdminAction = function(serverName, username, useremail){
             if(server.val()["name"] == name){
                 server.val()["members"].forEach(member=>{
                     if(member["username"] == username &
-        let serverNameRef = rtdb.child(serverRef, servername);
+        let serverNameRef = rtdb.child(serverRef, serverName);
         rtdb.get(serverNameRef).then(ss=>{
             ss.forEach(member=>{
         if(member["username"] == username){
