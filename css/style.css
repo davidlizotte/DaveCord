@@ -97,6 +97,7 @@ body{
  background-size: cover;
 }
 .container{
+ 
  width: 400px;
  max-width: 4000px;
  margin: 1rem;
@@ -105,7 +106,9 @@ body{
  background: #ffffff;
 
 }
-
+.container #mainpage{
+  display:none;
+}
 .form-input-group{
  margin-bottom: 1rem;
 }
