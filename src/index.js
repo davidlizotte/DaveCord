@@ -87,6 +87,8 @@ let makeAdminAction = function(serverName, username, useremail){
 let renderServerPage = function(serverName, username, useremail, isAdmin){
 
     let isCurrentMemberAdmin = false;
+    let currentMemberUserName;
+    let currentMemberEmail;
 
     // Color up the server page before routing there
     rtdb.get(serverRef).then(ss=>{
@@ -115,6 +117,9 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
                             if(member["role"]["admin"]){
                                 isCurrentMemberAdmin = true;
                             }        
+                            currentMemberUserName = currMember["username"];
+                            currentMemberEmail = currMember["email"];
+                            
                             currMember.style = "color: yellow; text-align: center; cursor: pointer";
                             currMember.onclick = function(){
                                 document.getElementById("messagebar").style = "display: none";
@@ -184,7 +189,7 @@ let renderServerPage = function(serverName, username, useremail, isAdmin){
                                     }
                                 
                                     if(makeAdmin){
-                                        makeAdminAction(serverName, currMember["username"], currMember["email"]);
+                                        makeAdminAction(serverName, currentMemberUserName, currentMemberEmail);
                                     }
 
                                     // 2. Close the "User Settings" Form
