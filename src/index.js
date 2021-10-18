@@ -45,6 +45,25 @@ let makeAdminAction = function(serverName, username, useremail){
                            };
                             rtdb.update(memberRef,roleObj);
                             rtdb.update(serverNameRef, memberRef);
+                            
+                            let currAdmins = server.val()["admins"];
+
+                            let currAdminObj = {
+                                "role": {
+                                    "admin": true
+                                },
+                                "userID": userUID,
+                                "username": username,
+                                "email": useremail
+                            }
+                    
+                            currAdmins.push(currAdminObj);
+                    
+                            let adminsObj = {
+                                "admins": currAdmins
+                            }
+                    
+                            rtdb.update(serverNameRef, adminsObj); 
 
                         }
                     });
